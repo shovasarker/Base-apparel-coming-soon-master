@@ -1,0 +1,196 @@
+
+.container {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
+    @include breakpoint-up(large){
+        background: url("../images/bg-pattern-desktop.svg"),linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
+        background-size: 57.5%;
+        background-repeat: no-repeat;
+    }
+    &__header {
+        padding: 2rem;
+        @include breakpoint-up(large){
+            padding: 4.5% 11.46%;
+        }
+        img {
+            height: 22px;
+            @include breakpoint-up(large){
+                height: 36px;
+            }
+        }
+    }
+
+    &__body {
+        @include breakpoint-up(large) {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+        }
+    }
+
+    &__image {
+        height: 250px;
+        width: 100%;
+        background-image: url("../images/hero-mobile.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        @include breakpoint-up(large) {
+            position: absolute;
+            height: 100vh;
+            width: 42.5%;
+            top: 0;
+            background-image: url("../images/hero-desktop.jpg");
+        }
+    }
+
+    &__text {
+        padding: 55px 2rem 90px 2rem;
+        text-align: center;
+
+        @include breakpoint-up(large){
+            position: absolute;
+            width: 57.5%;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            padding-left: 11.46%;
+            padding-right: 15.27%;
+            text-align: left;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 40px;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin-bottom: 18px;
+            span {
+                font-weight: 300;
+                color: $DesaturatedRed;
+            }
+            @include breakpoint-up(xlarge) {
+                font-size: 48px;
+                line-height: 58px;
+                letter-spacing: 1rem;
+            }
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 20px;
+            color: $DesaturatedRed;
+            margin-bottom: 30px;
+            @include breakpoint-up(xlarge) {
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+    }
+
+    &__input_full {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &::after {
+            content: "Please provide a valid email";
+            position: absolute;
+            color: $SoftRed;
+            bottom: -40%;
+            padding-left: 26px;
+            font-size: 14px;
+            display: none;
+        }
+        input {
+            flex: 1;
+            width: 100%;
+            font-size: 14px;
+            color: $DesaturatedRed;
+            background-color: transparent;
+            border: 1px solid $DesaturatedRed;
+            border-radius: 9999px;
+            padding: 16px 24px;
+
+            @include breakpoint-up(xlarge){
+                font-size: 16px;
+            }
+
+            &::placeholder{
+                font-size: 14px;
+                color: $DesaturatedRed;
+                @include breakpoint-up(xlarge){
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .btn {
+            position: relative;
+            padding: 13px 32px;
+            margin-left: -50px;
+            border: none;
+            border-radius: 9999px;
+            cursor: pointer;
+            background: linear-gradient(135deg, hsl(0, 80%, 86%),hsl(0, 74%, 74%));
+            box-shadow: 0 8px 12px 0 rgba($color: #000000, $alpha: 0.15);
+            
+            @include breakpoint-up(xlarge){
+                padding: 13px 43px;
+            }
+            
+            img {
+                height: 22px;
+                @include breakpoint-up(xlarge){
+                    height: 24px;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-color: white;
+                border-radius: 9999px;
+                opacity: 0;
+                
+            }       
+            &::after {
+                content: "";
+                height: 24px;
+                width: 24px;
+                z-index: 2;
+                position: absolute;
+                left: -40%;
+                background-image: url("../images/icon-error.svg");
+                display: none;
+                
+            }
+            &:hover {
+                &::before {
+                    opacity: 0.35;
+                }
+            }
+        }
+
+        &.error {
+            &::after {
+                display: inline-block;
+            }
+
+            .btn::after {
+                display: inline-block;
+            }
+
+            input {
+                border-color: $SoftRed;
+            }
+        }
+
+    }
+
+}

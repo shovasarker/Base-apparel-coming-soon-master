@@ -12,7 +12,7 @@ body {
 
 .container {
   position: relative;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(135deg, white, #fff5f5);
 }
 
@@ -21,6 +21,7 @@ body {
     background: url("../images/bg-pattern-desktop.svg"), linear-gradient(135deg, white, #fff5f5);
     background-size: 57.5%;
     background-repeat: no-repeat;
+    height: 100vh;
   }
 }
 
@@ -88,7 +89,7 @@ body {
     position: absolute;
     width: 57.5%;
     left: 0;
-    top: 50%;
+    top: 55%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
     padding-left: 11.46%;
@@ -97,10 +98,25 @@ body {
   }
 }
 
+@media (min-width: 64rem) {
+  .container__text {
+    padding-top: 60px;
+  }
+}
+
+@media (min-width: 87.5rem) {
+  .container__text {
+    padding-top: 80px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
 .container__text h1 {
   font-size: 36px;
   font-weight: 600;
-  line-height: 40px;
+  line-height: 44px;
   text-transform: uppercase;
   letter-spacing: 10px;
   margin-bottom: 18px;
@@ -111,11 +127,21 @@ body {
   color: #ce9797;
 }
 
-@media (min-width: 87.5rem) {
+@media (min-width: 64rem) {
   .container__text h1 {
     font-size: 48px;
     line-height: 58px;
+    letter-spacing: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 87.5rem) {
+  .container__text h1 {
+    font-size: 60px;
+    line-height: 70px;
     letter-spacing: 1rem;
+    margin-bottom: 30px;
   }
 }
 
@@ -126,10 +152,19 @@ body {
   margin-bottom: 30px;
 }
 
-@media (min-width: 87.5rem) {
+@media (min-width: 64rem) {
   .container__text p {
     font-size: 16px;
-    line-height: 24px;
+    line-height: 26px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 87.5rem) {
+  .container__text p {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 50px;
   }
 }
 

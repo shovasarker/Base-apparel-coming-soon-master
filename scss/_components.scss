@@ -1,12 +1,13 @@
 
 .container {
     position: relative;
-    height: 100vh;
+    height: 100%;
     background: linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
     @include breakpoint-up(large){
         background: url("../images/bg-pattern-desktop.svg"),linear-gradient(135deg,hsl(0, 0%, 100%),hsl(0, 100%, 98%));
         background-size: 57.5%;
         background-repeat: no-repeat;
+        height: 100vh;
     }
     &__header {
         padding: 2rem;
@@ -53,16 +54,27 @@
             position: absolute;
             width: 57.5%;
             left: 0;
-            top: 50%;
+            top: 55%;
             transform: translateY(-50%);
             padding-left: 11.46%;
             padding-right: 15.27%;
             text-align: left;
         }
+
+        @include breakpoint-up(large){
+            padding-top: 60px;
+        }
+
+        @include breakpoint-up(xlarge){
+            padding-top: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
         h1 {
             font-size: 36px;
             font-weight: 600;
-            line-height: 40px;
+            line-height: 44px;
             text-transform: uppercase;
             letter-spacing: 10px;
             margin-bottom: 18px;
@@ -70,10 +82,18 @@
                 font-weight: 300;
                 color: $DesaturatedRed;
             }
-            @include breakpoint-up(xlarge) {
+
+            @include breakpoint-up (large) {
                 font-size: 48px;
                 line-height: 58px;
+                letter-spacing: 14px;
+                margin-bottom: 30px;
+            }
+            @include breakpoint-up(xlarge) {
+                font-size: 60px;
+                line-height: 70px;
                 letter-spacing: 1rem;
+                margin-bottom: 30px;
             }
         }
 
@@ -82,9 +102,17 @@
             line-height: 20px;
             color: $DesaturatedRed;
             margin-bottom: 30px;
-            @include breakpoint-up(xlarge) {
+
+            @include breakpoint-up(large){
                 font-size: 16px;
-                line-height: 24px;
+                line-height: 26px;
+                margin-bottom: 40px;
+            }
+
+            @include breakpoint-up(xlarge) {
+                font-size: 18px;
+                line-height: 30px;
+                margin-bottom: 50px;
             }
         }
     }
